@@ -1,0 +1,65 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <div class="thread">
+        <div class="date">
+            <p>{{ post.published_at|date:"d F Y" }}</p>
+            
+            <p>{% trans "category: " %}<a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+        </div>
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.tease }}</p>
+            <p>{{ post.body }}</p>
+            <i class="fa fa-tags"></i>
+
+            {% for tag in post.tag.all %}
+            <a href="{{ tag.get_absolute_url }}" class="tags">{{ tag }}</a>
+            {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block comment %}
+                  
+<h2>{% trans "Comments" %}</h2>
+
+<div class="comment_list">
+
+{% if comment_tree %}
+    {% include "blog/comment_tree.html" %}
+{% endif %}
+
+</div>
+
+{% if post.is_comment_allowed %}
+
+     <div class="contact">
+    <form method="post" action="{{ post.get_absolute_url }}comment/">
+    {% csrf_token %}
+    <div class="form">
+    
+        {{ comment_form.as_p }}
+
+        {% if comment_form.subject.errors %}
+        <ol>
+        {% for err in comment_form.subject.errors %}
+             <span class="errorlist">{{ err }}</span>
+        {% endfor %}
+        </ol>
+        {% endif %}
+
+    </div>
+    <input class="button" type="submit" value="{% trans "Submit" %}">
+    <div class="required_field">{% trans "*Required fields are bold" %}</div>
+    </form>
+</div>
+{% endif %}
+
+{% endblock %}

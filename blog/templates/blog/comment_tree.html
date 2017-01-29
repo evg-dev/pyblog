@@ -1,0 +1,21 @@
+{% load i18n %}
+
+{% for comment in comment_tree %}
+<div class="comment">
+	<div class="comment-header">
+		<p><i class="fa fa-user" aria-hidden="true"></i> {{ comment.user_name }}</p>
+		<p>{% trans "Date #id" %}: <a class="ankor" href="#comment-{{ comment.id }}" name="comment-{{ comment.id }}">{{ comment.created }} #{{ comment.id }}</a></p>
+	</div>
+
+	<p>{{ comment.content }}</p>
+	<a href="{{ comment.get_reply_link }}">{% trans "Reply" %}</a>
+	
+
+	{% if post.is_comment_allowed %}
+	    {% include "blog/comment_tree.html" with comment_tree=comment.children %}
+	{% endif %}
+
+</div>
+
+{% endfor %}
+

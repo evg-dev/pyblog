@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Tag: " %} {{ tag_name.name }}</h2>
+    {% for post in object_list %}
+    <div class="thread">
+	    <div class="date">
+	        <p>{{ post.published_at|date:"d F Y" }}</p>
+	        
+	        <p>{% trans "category: " %}<a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
+	    </div>
+        <div class="post">
+		    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+	        <p class="more"><a href="{{ post.get_absolute_url }}">{% trans "Read more..." %}</a></p>
+        </div>
+    </div>
+    {% empty %}
+    <p>{% trans "No posts" %}</p>
+    {% endfor %}
+
+    {% if  is_paginated %}
+    <!--link go back-->
+	    {% if  page_obj.has_previous %}
+	      <a class="paginat" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous page" %}</a> |
+	    {% endif %}
+	    <!--actual page-->
+	    {% trans "page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}
+	    <!--link go next-->
+	    {% if  page_obj.has_next %}| 
+	      <a class="paginat" href="?page={{ page_obj.next_page_number }}">{% trans "Next page" %}</a>
+	    {% endif %}
+	{% endif %}
+{% endblock %}

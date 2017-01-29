@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <ul class="arch_list">
+{% regroup posts by category as category_list %}
+
+{% for category in category_list %}
+    <h1>{{ category.grouper }}</h1>
+    <ul class="arch_cat">
+        {% for post in category.list %}
+            <li class="arch_post"><a href="{{ post.get_absolute_url }}">{{ post.title }} <span class="published_at">{{ post.published_at|date:"d F Y"  }}</span></a></li>
+        {% endfor %}
+    </ul>
+
+{% endfor %}
+{% endblock %}

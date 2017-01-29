@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<div class="contact">
+    <form method="post" action="{{ comment.get_reply_link }}">
+    {% csrf_token %}
+    <div class="form">
+    
+        {{ form.as_p }}
+
+        {% if form.subject.errors %}
+    	<ol>
+	    {% for err in form.subject.errors %}
+	         <span class="errorlist">{{ err }}</span>
+	    {% endfor %}
+	    </ol>
+		{% endif %}
+
+    </div>
+    <input class="button" type="submit" value="{% trans "Submit" %}">
+    <div class="required_field">{% trans "*Required fields are bold" %}</div>
+    </form>
+</div>
+
+
+{% endblock %}

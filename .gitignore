@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+__pycache__
+db.sqlite3
+prod.py
+dev.py
+/static
+/media
+uwsgi.ini

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        {% load i18n %}
+        {% load staticfiles %}
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+        <title>{% trans "MyBlog.org" %}</title>
+        <link rel="stylesheet" href="{% static "blog/font-awesome/css/font-awesome.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="{% static "blog/style.css" %}"/>    
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container">
+                <input type="checkbox" id="menu-checkbox">
+                <nav role="navigation">
+                
+                    <label for="menu-checkbox" class="toggle-button" data-open="Menu" data-close="Close" onclick></label>
+                    <ul class="main-menu">
+
+                        
+                        <li class="logo">
+                        {% url "blog:list" as list %}
+                        <a {% if request.path == list %} class="active"{% endif %} href="{% url "blog:list" %}">{% trans "Blog" %}</a>
+                        </li>
+
+                        <li>
+                        {% url "blog:archive" as archive %}
+                        <a {% if request.path == archive %} class="active"{% endif %} href="{% url "blog:archive" %}">{% trans "Publications" %}</a>
+                        </li>
+
+                        <li>
+                        {% url "blog:about" as about %}
+                        <a {% if request.path == about %} class="active"{% endif %} href="{% url "blog:about" %}">{% trans "About" %}</a>
+                        </li>
+
+                        <li><div  class="form"><form action="{% url "blog:search" %}" method="get" class="search">
+                            <input type="search" name="q" placeholder="{% trans "search + enter" %}" class="input"/>
+                            </form></div>
+                        </li>
+                        
+                    </ul>
+                </nav>    
+            </div>
+            <div class="line"></div>
+        </header>
+
+        <div class="height">
+
+            <div class="wrap"> 
+                <div class="main">
+                    {% block content %}
+                    {% endblock %}
+                    {% block comment %}
+                    {% endblock %}
+
+                </div>
+            </div> 
+
+            <footer>
+
+                <div class="line"></div>
+                <div class="copy">{% trans "Blog" %} 
+                    <a href="{% url "blog:feed" %}" data-placement="bottom">
+                    <i class="fa fa-rss"></i>
+                    </a>
+                </div>
+
+            </footer>
+             
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,15 @@
+certifi==2016.9.26
+Django==1.10
+django-debug-toolbar==1.6
+django-simple-captcha==0.5.3
+djorm-ext-pgfulltext==0.10
+olefile==0.44
+Pillow==4.0.0
+psycopg2==2.6.2
+pytz==2016.10
+requests==1.2.3
+simplejson==3.10.0
+six==1.10.0
+sqlparse==0.2.2
+testfixtures==4.13.3
+urllib3==1.19.1

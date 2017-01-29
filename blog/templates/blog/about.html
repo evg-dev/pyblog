@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+    <p>{% trans "About my blog. Contacts here." %}</p>
+
+{% block form %}
+
+    <div class="contact">
+        <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form">
+
+            {% for field in form %}
+                 <div {% if field.errors %}class="field_error"{% endif %}>
+                <p><label class="required_field" for="{{ field.name }}">{{ field.label }}</label>{{ field }}</p>
+
+                {% for err in field.errors %}
+                <span class="errorlist">{{ err }}</span>
+                {% endfor %}
+                </div>
+            {% endfor %}
+
+        </div>
+        <input class="button" type="submit" value="{% trans "Send mail" %}">
+        <div class="required_field">{% trans "*Required fields are bold" %}</div>
+        
+        </form>
+    </div>
+    <br>
+    
+{% endblock %}
+
+{% endblock %}

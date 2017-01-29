@@ -1,0 +1,486 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%; 
+    background: #fff;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.main  a.ankor{
+    padding-top: 60px;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a {
+    color: #5fad00;
+}
+
+a:hover {
+    color: #006919;
+    text-decoration: underline;
+}
+
+.main a:visited {
+    color: #006919;
+}
+
+.main a:hover {
+    color: #006919;
+}
+
+.wrap {
+    margin: auto;
+    max-width: 1000px;
+    min-width: 240px;
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 110px;
+    
+}
+
+.main {
+    margin-top: 60px;
+    padding: .5em;
+    max-width: 1000px;
+    position: relative;
+    background: #fff;
+    word-break: break-all; /*string transfer*/
+  
+}
+
+.height {
+   height: 100%; 
+}
+
+footer {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    /*background: #5fad00;*/
+    clear: both;
+    margin-top: -100px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 240px;
+}
+
+.copy {
+    font-size: 100%;
+    text-align: center;
+    line-height: 100px;
+    
+}
+
+.arch_list {
+    font-size: 16px;
+    margin:0;
+    padding:0;
+}
+
+.published_at {
+    color: #888888;
+    float: right;
+}
+
+.arch_post {
+    list-style: none;
+    color: #888888;
+    border-radius: 5px;
+    border: 1px solid #DDDDDD;
+    margin-bottom: 5px;
+}
+.arch_post a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.arch_post:hover {
+    border: 1px solid #006919;
+    color: #006919;
+}
+
+.arch_post:visited {
+    color: #006919;
+}
+
+.archive {
+     float: right;
+}    
+
+/*-----------search-----------*/
+.search 
+{
+    position: relative;
+}
+
+.search .input  {
+    /*border: none;*/
+    padding: 4px 6px;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #DDDDDD;
+ 
+}
+
+.search .input:focus {
+  background: #E8E8E8;
+  color: #333;
+  border: 1px solid #006919;
+}
+
+.search .input:hover {
+      border: 1px solid #006919;
+}
+
+/*-----------contact form-----------*/
+.contact {
+    float:left;
+}
+
+.form p {
+    clear:both;
+    text-align:right;
+    line-height:25px;
+
+}
+
+/*---captсha----*/
+
+
+p #id_captcha_1 {
+    vertical-align: top;
+    margin-right:164px;
+    margin-left:20px;
+    width: 70px;
+}
+
+.form input {
+    height: 30px;
+    border-radius: 5px;
+    padding: 4px 6px;
+    width: 334px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #DDDDDD;
+
+}
+
+.form textarea {
+    width: 320px;
+    border-radius: 5px;
+    padding: 4px 6px;
+    outline: none;
+    border: 1px solid #DDDDDD;
+}
+
+
+
+.form input:focus, textarea:focus {
+    background: #E8E8E8;
+    color: #333;
+    border: 1px solid #006919;
+}
+
+.form input:hover, textarea:hover {
+    border: 1px solid #006919;
+}
+
+.form label {
+    float:left;
+    padding-right:10px;
+}
+
+.contact .button {
+    border: none;
+    border: 1px solid #DDDDDD;
+    background: #fff;
+    color: #5fad00;
+    border-radius: 5px;
+    padding: 10px; 
+    margin-bottom: 25px;
+}
+
+.contact .button:hover {
+    border: 1px solid #006919;
+    color: #006919;
+}
+
+.contact .button:focus {
+    background-color: #DDDDDD;
+}
+
+.errorlist {
+    margin-left: 40px;
+    list-style: none;
+    color: red;
+}
+
+
+/*-----------posts-----------*/
+
+.more {
+margin-top: 35px;
+}
+
+.more a {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #DDDDDD;
+
+}
+
+.more a:hover {  
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #006919;
+    text-decoration: none;
+}
+
+.thread {
+    margin-bottom: 50px;
+}
+
+.date {
+    color: #888888;
+    max-width: 624px;
+
+}
+
+.post {
+    max-width: 624px;
+}
+
+.required_field{
+    font-weight: bold;
+}
+
+
+/*-----------comments-----------*/
+
+
+.comment {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-color: #DDDDDD;
+    border-left-style: solid;
+    border-width: 1px;
+    margin: 25px 0;
+    padding: 0 0 0 25px;
+}
+
+.main a.ankor {
+    padding-top: 60px;
+}
+.comment-header {
+    color: #888888;
+    font-size: 85%;
+}
+
+/*-----------------with media screen---------------*/
+
+@media screen and (min-width: 960px) {
+.date
+{
+    margin: -30px auto;
+    top: 60px;
+    text-align: right;
+    position: relative;
+    left: -650px; 
+}
+
+.post
+{
+    margin: 30px auto;
+}
+}
+
+
+
+/*-----------menu-----------*/
+nav .logo {
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+nav {
+    display: table;
+    width: 100%;
+    max-width: 1000px;
+    position: static;
+    background: #fff;
+}
+
+nav ul {
+    margin:0;
+    padding:0;
+    justify-content: space-between;
+    left:50%;
+    text-align: center;
+    /*text-transform: uppercase; */
+}
+
+nav ul li {
+    line-height: 50px;
+    list-style:none;    
+}
+
+nav a {
+    font-size: .9em;
+    padding-right: 0em;
+    white-space: pre;
+    color: #080808;
+}
+
+nav a:visited {
+    color: #000;
+}
+
+nav a:hover {
+    color: #006919;
+    text-decoration: none;
+}
+
+#menu-checkbox {
+  display: none;
+}
+
+.main-menu li:not(.logo) {
+  display: none;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/*.main-menu li 
+{
+  font-size: 1em;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+*/
+
+.main-menu a:hover {
+  text-decoration: underline;
+}
+
+
+.toggle-button 
+{
+    position: absolute;
+    color: #5fad00;
+    font-size: 18px;
+    text-align: left;
+    display: block;
+    cursor: pointer;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    display: block;
+    margin: 4px 4px;
+    padding: 10px 20px;
+}
+
+
+#menu-checkbox:checked + nav[role="navigation"] .main-menu li:not(.logo){
+    display: block;
+}
+
+
+.toggle-button:after {
+    content: "\f0c9";
+    font-family: 'FontAwesome';
+    display: inline-block;
+}
+
+#menu-checkbox:checked + nav[role="navigation"] .toggle-button:after {
+  /*content: attr(data-close);*/
+
+     content: "\f0c9";
+    font-family: 'FontAwesome';
+    color: #006919;
+  
+}
+
+.toggle-button:before {
+    /*content: attr(data-close);*/
+    font-size: 1rem;
+    position: relative;
+    right: 3px;
+    bottom: 3px;
+}
+
+#menu-checkbox:checked + nav[role="navigation"] .toggle-button:before {
+    /*color: #006919;*/
+}
+#menu-checkbox:checked + nav[role="navigation"] .toggle-button {
+    /*color: #006919;*/
+    border: 1px solid #006919;
+}
+
+.line
+{
+    display: block;
+    background: #DDDDDD;
+    height: 1px;
+}
+
+@media screen and (min-width : 640px) { 
+
+
+.active
+{
+    box-shadow: 0px -2px 0px #5fad00 inset;
+}
+
+nav ul {
+        display: flex;
+}
+
+.toggle-button 
+{
+      display: none;
+}
+
+.main-menu li:not(.logo){
+      display: block;
+}
+
+
+.main-menu li {
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+
+}
+
+.main-menu a {
+      
+      display: inline-block;
+      font-size: .8em;
+      text-decoration: none;
+      border-bottom: 0;
+}
+
+}
+
