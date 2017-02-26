@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="contact">
-    <form method="post" action="{{ comment.get_reply_link }}">
+    <form method="post" action="{{ comment.get_reply_link }}" class="contact-form">
     {% csrf_token %}
     <div class="form">
     

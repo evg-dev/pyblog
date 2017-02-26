@@ -164,6 +164,11 @@ footer {
 
 }
 
+.form-wrapper {
+    overflow: auto;
+}
+
+
 /*---captсha----*/
 
 
@@ -314,7 +319,6 @@ margin-top: 35px;
     margin: 30px auto;
 }
 }
-
 
 
 /*-----------menu-----------*/

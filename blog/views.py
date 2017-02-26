@@ -1,4 +1,4 @@
-from django.http import HttpResponse, request
+from django.http import HttpResponse, request, JsonResponse
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, FormView, TemplateView, C
 from django.shortcuts import get_object_or_404, render_to_response
 from django.db.models import Count
 from django.utils.translation import ugettext_lazy as _
+from django.utils.formats import localize
 from pyblog.settings.dev import PAGE_NUM
 from blog.models import Post, Category, Tag, Comment
 from blog.forms import Contact,  CommentForm
@@ -78,7 +79,7 @@ class PostDetail(DetailView):
             if not comment.is_approved:
                 comment.url = ''
                 comment.content = _('Comment is under moderation')
-                comment.under_moderation_class = 'comment-under-moderation'
+                # comment.under_moderation_class = 'comment-under-moderation'
         ctx['comment_tree'] = make_tree(comment_list)
         ctx['comment_form'] = CommentForm()
         return ctx
@@ -153,6 +154,7 @@ class CommentAdd(CreateView):
         return get_object_or_404(Post, slug=self.kwargs['slug'])
 
     def form_valid(self, form):
+
         if not self.request.user.is_authenticated():
             self.request.session['user_data'] = {
                 field: form.cleaned_data[field]
@@ -161,7 +163,31 @@ class CommentAdd(CreateView):
         if self.request.user.is_superuser:
             form.instance.is_approved = True
         form.instance.post_id = self.get_post().id
-        return super(CommentAdd, self).form_valid(form)
+        form.save()
+
+        if self.request.is_ajax():
+            comment = Comment.objects.get(id=form.instance.id)
+            maxid = int(self.request.POST['maxid']) + 1
+            comment_list =Comment.objects.filter(post=comment.post.id).filter(id__gte=maxid)
+
+            data = {}
+            for c in comment_list:
+                if not c.is_approved:
+                    c.url = ''
+                    c.content = _('Comment is under moderation')
+                created = localize(c.created)
+                d = {
+                    'id': c.id,
+                    'created': created,
+                    'user_name': c.user_name,
+                    'content': c.content,
+                    'parent': c.parent_id,
+                }
+                data[c.id] = d
+
+            return JsonResponse(data)
+        else:
+            return super(CommentAdd, self).form_valid(form)
 
     def get_success_url(self):
         return reverse('blog:blog_post',

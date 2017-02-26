@@ -5,7 +5,7 @@
 {% block content %}
    
 <div class="contact">
-    <form method="post" action="{{ post.get_absolute_url }}">
+    <form class="contact-form" method="post" action="{{ post.get_absolute_url }}">
     {% csrf_token %}
     <div class="form">
     

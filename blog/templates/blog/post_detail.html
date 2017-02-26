@@ -2,7 +2,14 @@
 
 {% load i18n %}
 
+
 {% block content %}
+{% load staticfiles %}
+
+
+<script type="text/javascript" src="{% static "/blog/js/comments_reply.js" %}"></script>
+<script type="text/javascript" src="{% static "/blog/js/comments_update.js" %}"></script>
+
 
     <div class="thread">
         <div class="date">
@@ -40,26 +47,32 @@
 
 {% if post.is_comment_allowed %}
 
-     <div class="contact">
-    <form method="post" action="{{ post.get_absolute_url }}comment/">
-    {% csrf_token %}
-    <div class="form">
-    
-        {{ comment_form.as_p }}
+<div class="contact">
+    <div class="form-wrapper">
+        <form method="post"  class="contact-form contact" action="{{ post.get_absolute_url }}comment/">
+        {% csrf_token %}
+        <div class="form">
+        
+            {{ comment_form.as_p }}
 
-        {% if comment_form.subject.errors %}
-        <ol>
-        {% for err in comment_form.subject.errors %}
-             <span class="errorlist">{{ err }}</span>
-        {% endfor %}
-        </ol>
-        {% endif %}
+            {% if comment_form.subject.errors %}
+            <ol>
+            {% for err in comment_form.subject.errors %}
+                 <span class="errorlist">{{ err }}</span>
+            {% endfor %}
+            </ol>
+            {% endif %}
 
+        </div>
+        <input type="hidden" id="max" name="maxid">
+        <input class="button" type="submit" value="{% trans "Submit" %}">
+
+        <div class="required_field">{% trans "*Required fields are bold" %}</div>
+        </form>
     </div>
-    <input class="button" type="submit" value="{% trans "Submit" %}">
-    <div class="required_field">{% trans "*Required fields are bold" %}</div>
-    </form>
+    <br>
 </div>
+
 {% endif %}
 
 {% endblock %}

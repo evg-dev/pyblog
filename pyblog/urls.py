@@ -22,8 +22,7 @@ from django.contrib import admin
 urlpatterns = i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('blog.urls', namespace='blog')),
-    # django-simple-captha
-    url(r'^captcha/', include('captcha.urls')),
+    url(r'^captcha/', include('captcha.urls')), # django-simple-captha
 
 )  # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

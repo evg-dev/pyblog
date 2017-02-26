@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-29 00:00+0500\n"
+"POT-Creation-Date: 2017-02-26 13:04+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,6 +44,18 @@ msgstr "Каптча:"
 msgid "Website"
 msgstr "Вебсайт"
 
+#: blog/models.py:16
+#, fuzzy
+#| msgid "Category: "
+msgid "Category"
+msgstr "Категория: "
+
+#: blog/models.py:17
+#, fuzzy
+#| msgid "No categories"
+msgid "Categories"
+msgstr "Нет категорий"
+
 #: blog/templates/400.html:6
 msgid "Error 400"
 msgstr "Ошибка 404"
@@ -58,7 +70,7 @@ msgstr "Ошибка 403"
 
 #: blog/templates/403.html:7
 msgid "Forbidden"
-msgstr ""
+msgstr "Доступ запрещен"
 
 #: blog/templates/404.html:6
 msgid "Error 404"
@@ -80,12 +92,13 @@ msgstr ""
 msgid "About my blog. Contacts here."
 msgstr "О моем блоге. Контакты."
 
-#: blog/templates/blog/about.html:28
+#: blog/templates/blog/about.html:26
 msgid "Send mail"
 msgstr "Отправить"
 
-#: blog/templates/blog/about.html:29 blog/templates/blog/comment_form.html:9
-#: blog/templates/blog/comment_reply.html:14
+#: blog/templates/blog/about.html:27 blog/templates/blog/comment_form.html:24
+#: blog/templates/blog/comment_reply.html:24
+#: blog/templates/blog/post_detail.html:70
 msgid "*Required fields are bold"
 msgstr "*Обязательные поля выделены жирным шрифтом"
 
@@ -93,19 +106,19 @@ msgstr "*Обязательные поля выделены жирным шри�
 msgid "MyBlog.org"
 msgstr "Мой блог"
 
-#: blog/templates/blog/base.html:26 blog/templates/blog/base.html:62
+#: blog/templates/blog/base.html:28 blog/templates/blog/base.html:67
 msgid "Blog"
 msgstr "Блог"
 
-#: blog/templates/blog/base.html:31
+#: blog/templates/blog/base.html:33
 msgid "Publications"
 msgstr "Публикации"
 
-#: blog/templates/blog/base.html:36
+#: blog/templates/blog/base.html:38
 msgid "About"
 msgstr "О блоге"
 
-#: blog/templates/blog/base.html:40
+#: blog/templates/blog/base.html:42
 msgid "search + enter"
 msgstr "поиск + enter"
 
@@ -114,7 +127,7 @@ msgid "Category: "
 msgstr "Категория: "
 
 #: blog/templates/blog/category_detail.html:12
-#: blog/templates/blog/post_detail.html:11
+#: blog/templates/blog/post_detail.html:18
 #: blog/templates/blog/post_list.html:11 blog/templates/blog/tag_detail.html:12
 msgid "category: "
 msgstr "категория: "
@@ -154,31 +167,36 @@ msgstr "Следующая страница"
 msgid "No categories"
 msgstr "Нет категорий"
 
-#: blog/templates/blog/comment_form.html:8
-#: blog/templates/blog/comment_reply.html:13
+#: blog/templates/blog/comment_form.html:23
+#: blog/templates/blog/comment_reply.html:23
+#: blog/templates/blog/post_detail.html:68
 msgid "Submit"
 msgstr "Отправить"
 
-#: blog/templates/blog/comment_tree.html:7
+#: blog/templates/blog/comment_tree.html:8
 msgid "Date #id"
 msgstr "Время #id"
 
-#: blog/templates/blog/comment_tree.html:11
+#: blog/templates/blog/comment_tree.html:12
 msgid "Reply"
 msgstr "Ответить"
 
-#: blog/templates/blog/post_detail.html:27
+#: blog/templates/blog/comment_tree.html:13
+msgid "Cancel reply"
+msgstr "Свернуть"
+
+#: blog/templates/blog/post_detail.html:38
 msgid "Comments"
 msgstr "Комментарии"
 
 #: blog/templates/blog/tag_detail.html:6
 msgid "Tag: "
-msgstr "Тэги"
+msgstr "Тэги: "
 
 #: blog/templates/blog/thanks.html:5
 msgid "Message successfully sent. Thank you"
 msgstr "Сообщение успешно отправлено. Спасибо."
 
-#: blog/views.py:84
+#: blog/views.py:81 blog/views.py:185
 msgid "Comment is under moderation"
 msgstr "Комментарий на модерации"
