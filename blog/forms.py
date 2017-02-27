@@ -10,12 +10,12 @@ class Contact(forms.Form):
     name = forms.CharField(label=_('Name:'), max_length=100)
     mail = forms.EmailField(label=_('Email:'), max_length=100)
     text = forms.CharField(label=_('Message:'), widget=forms.Textarea)
-    # captcha = CaptchaField(label=_('Captcha:'))
+    captcha = CaptchaField(label=_('Captcha:'))
 
 
 class CommentForm(ModelForm):
     required_css_class = 'required_field'
-    # captcha = CaptchaField(label=_('Captcha:'))
+    captcha = CaptchaField(label=_('Captcha:'))
 
     class Meta:
         model = Comment

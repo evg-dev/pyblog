@@ -1,15 +1,15 @@
 {% extends "blog/base.html" %}
 
 {% load i18n %}
+{% load staticfiles %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static "/blog/js/comments_reply.js" %}"></script>
+    <script type="text/javascript" src="{% static "/blog/js/comments_update.js" %}"></script>
+{% endblock %}
 
 
 {% block content %}
-{% load staticfiles %}
-
-
-<script type="text/javascript" src="{% static "/blog/js/comments_reply.js" %}"></script>
-<script type="text/javascript" src="{% static "/blog/js/comments_update.js" %}"></script>
-
 
     <div class="thread">
         <div class="date">
@@ -65,8 +65,8 @@
 
         </div>
         <input type="hidden" id="max" name="maxid">
-        <input class="button" type="submit" value="{% trans "Submit" %}">
-
+        <input class="button" type="submit" value="{% trans "Submit" %}" />
+       {#  <button class="js-captcha-refresh" name="postid">{% trans "Refresh" %}</button> #}
         <div class="required_field">{% trans "*Required fields are bold" %}</div>
         </form>
     </div>

@@ -1,5 +1,6 @@
 $(document).ready(function($) {
     
+    url = $(location).attr('href').split('//')[1].split('/');
     form = $('.form-wrapper').clone();
     reply = $('.comment-reply');
     cancel = $('.comment-cancel-reply');
@@ -22,9 +23,7 @@ $(document).ready(function($) {
         $(this).hide();
         $('.form-wrapper').remove();
         form.clone().appendTo(comment);
-        url = $(location).attr('href').split('//')[1].split('/');
-        url = url.slice(1,-1)
-        new_url = '/' + url.join('/') + '/reply/' + id + '/'
+        new_url =  '/' + url.slice(1,3).join('/') + '/reply/' + id + '/';
         $('.contact-form').attr('action', new_url); //reply url
     });
 
@@ -37,4 +36,22 @@ $(document).ready(function($) {
         form.clone().appendTo('.contact');
     });
 
+    // captcha refresh
+    $('img.captcha').after(
+            $('<a href="#void" class="js-captcha-refresh">Refresh</a>')
+    );
+
+    $('.main').on('click', '.js-captcha-refresh', function(){
+        $form = $(this).parents('form');
+        c_url = location.protocol + "//" + url.slice(0,2).join('/') + '/captcha/refresh/'
+
+        $.getJSON(c_url, {}, function(json) {
+            $form.find('input[name="captcha_0"]').val(json.key);
+            $form.find('img.captcha').attr('src', json.image_url);
+        });
+
+        return false;
+    });
+
 });
+// 'http://localhost:8000/ru/captcha/refresh/'

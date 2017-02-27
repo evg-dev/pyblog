@@ -169,8 +169,17 @@ footer {
 }
 
 
+
 /*---captсha----*/
 
+.js-captcha-refresh {
+    border: 1px solid #DDDDDD;
+    background: #fff;
+    color: #5fad00;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 25px;
+}
 
 p #id_captcha_1 {
     vertical-align: top;

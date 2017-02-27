@@ -51,12 +51,11 @@ $(document).ready(function(event) {
                 delete response
                 }
             },
-            
+
             // failure: function(response) { 
             //     alert('Got an error dude');
             // }
         });
-        // return false;
     });
 });
 
