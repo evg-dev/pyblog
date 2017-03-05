@@ -11,6 +11,9 @@ from pyblog.settings.dev import PAGE_NUM
 from blog.models import Post, Category, Tag, Comment
 from blog.forms import Contact,  CommentForm
 
+from django.http import HttpResponse, HttpResponseBadRequest
+import json
+
 
 def make_tree(items):
     tree = []
@@ -153,6 +156,18 @@ class CommentAdd(CreateView):
     def get_post(self):
         return get_object_or_404(Post, slug=self.kwargs['slug'])
 
+    def form_invalid(self, form):
+        if self.request.is_ajax():
+            data = {
+            'success':False,
+            'form': form.errors,
+            }
+
+            return JsonResponse(data)
+        else:
+            return super(CommentAdd, self).form_invalid(form)
+
+
     def form_valid(self, form):
 
         if not self.request.user.is_authenticated():
@@ -171,6 +186,8 @@ class CommentAdd(CreateView):
             comment_list =Comment.objects.filter(post=comment.post.id).filter(id__gte=maxid)
 
             data = {}
+            data['success'] = True
+            data['comments'] = {}
             for c in comment_list:
                 if not c.is_approved:
                     c.url = ''
@@ -183,7 +200,8 @@ class CommentAdd(CreateView):
                     'content': c.content,
                     'parent': c.parent_id,
                 }
-                data[c.id] = d
+
+                data['comments'][c.id] = d
 
             return JsonResponse(data)
         else:

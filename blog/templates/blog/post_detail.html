@@ -4,8 +4,7 @@
 {% load staticfiles %}
 
 {% block script %}
-    <script type="text/javascript" src="{% static "/blog/js/comments_reply.js" %}"></script>
-    <script type="text/javascript" src="{% static "/blog/js/comments_update.js" %}"></script>
+    <script type="text/javascript" src="{% static "/blog/js/ajax.js" %}"></script>
 {% endblock %}
 
 
@@ -65,8 +64,7 @@
 
         </div>
         <input type="hidden" id="max" name="maxid">
-        <input class="button" type="submit" value="{% trans "Submit" %}" />
-       {#  <button class="js-captcha-refresh" name="postid">{% trans "Refresh" %}</button> #}
+        <input class="button" type="submit" value="{% trans "Submit" %}">
         <div class="required_field">{% trans "*Required fields are bold" %}</div>
         </form>
     </div>

@@ -173,25 +173,43 @@ footer {
 /*---captсha----*/
 
 .js-captcha-refresh {
+    text-decoration: none;
+    vertical-align: top;
     border: 1px solid #DDDDDD;
     background: #fff;
     color: #5fad00;
     border-radius: 5px;
-    padding: 10px;
     margin-bottom: 25px;
+    margin-left: 20px;
+    padding: 6px;
+    float: right;
+}
+#captcha_error {
+    color: red;
+}
+
+
+.js-captcha-refresh:hover{
+    text-decoration: none;
+    border: 1px solid #006919;
+    color: #006919;
+}
+
+.main a.js-captcha-refresh:visited {
+    color: #5fad00;
 }
 
 p #id_captcha_1 {
     vertical-align: top;
-    margin-right:164px;
+    margin-right:10px;
     margin-left:20px;
     width: 70px;
 }
 
 .form input {
-    height: 30px;
+    height: 38px;
     border-radius: 5px;
-    padding: 4px 6px;
+    padding: 6px;
     width: 334px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -496,4 +514,3 @@ nav ul {
 }
 
 }
-
