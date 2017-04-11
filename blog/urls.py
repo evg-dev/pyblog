@@ -1,5 +1,5 @@
-from django.conf.urls import include, url
-from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls import url
+# from django.conf.urls.i18n import i18n_patterns
 from blog.views import PostsList, PostDetail, MainPostsList, \
     CategoryList, CatPostsList, TagPostsList, ArchivePostsList, \
     Contact, CommentAdd, CommentReply, SearchView
@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^(?P<slug>[-\w]+)/$', PostDetail.as_view(), name='blog_post'),
     url(r'^(?P<slug>[-\w]+)/comment/$',
         CommentAdd.as_view(), name='comment_add'),
-    url(r'^(?P<slug>[-\w]+)/reply/(?P<pk>[0-9]+)/$', CommentReply.as_view(),
+    url(r'^(?P<slug>)/reply/(?P<pk>[0-9]+)/$', CommentReply.as_view(),
         name='comment_replay'),
 
 ]

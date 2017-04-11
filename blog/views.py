@@ -1,4 +1,4 @@
-from django.http import HttpResponse, request, JsonResponse
+from django.http import HttpResponse, request, JsonResponse, HttpResponseBadRequest
 from django.conf import settings
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
@@ -10,8 +10,6 @@ from django.utils.formats import localize
 from pyblog.settings.dev import PAGE_NUM
 from blog.models import Post, Category, Tag, Comment
 from blog.forms import Contact,  CommentForm
-
-from django.http import HttpResponse, HttpResponseBadRequest
 import json
 
 
@@ -237,7 +235,7 @@ def e400(request):
     return render_to_response('400.html')
 
 
-def e403(request):
+def e403(request):    
     return render_to_response('403.html')
 
 
