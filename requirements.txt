@@ -4,7 +4,7 @@ django-debug-toolbar==1.6
 django-simple-captcha==0.5.3
 djorm-ext-pgfulltext==0.10
 olefile==0.44
-Pillow==4.0.0
+Pillow==6.2.0
 psycopg2==2.6.2
 pytz==2016.10
 requests==1.2.3
