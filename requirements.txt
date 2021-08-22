@@ -7,7 +7,7 @@ olefile==0.44
 Pillow==8.2.0
 psycopg2==2.6.2
 pytz==2016.10
-requests==1.2.3
+requests==2.20.0
 simplejson==3.10.0
 six==1.10.0
 sqlparse==0.2.2
