@@ -1,4 +1,4 @@
-certifi==2016.9.26
+certifi==2022.12.7
 Django==2.2.24
 django-debug-toolbar==1.11.1
 django-simple-captcha==0.5.3
